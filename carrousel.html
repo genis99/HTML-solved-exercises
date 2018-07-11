@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebPage</title>
+	<style>
+	#red {
+		display: block;
+	}
+	#blue {
+		display: none;
+	}
+	#green {
+		display: none;
+	}
+	</style>
+	<script>
+	var rvisible = true;
+	var bvisible = false;
+	var gvisible = false;
+    var myVar = setInterval(myTimer, 3000);
+
+    function myTimer() {
+        if (rvisible) {
+        	document.getElementById("red").style.display = 'none';
+        	document.getElementById("blue").style.display = 'block';
+        	bvisible = true;
+        	rvisible = false;
+        }
+        else if (bvisible) {
+        	document.getElementById("blue").style.display = 'none';
+        	document.getElementById("green").style.display = 'block';
+        	gvisible = true;
+        	bvisible = false;
+        }
+        else if (gvisible) {
+        	document.getElementById("green").style.display = 'none';
+        	document.getElementById("red").style.display = 'block';
+        	rvisible = true;
+        	gvisible = false;
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <img id="red" src="red.png" alt="red">
+        <img id="blue" src="blue.png" alt="blue">
+        <img id="green" src="green.png" alt="green">
+    </header>
+</body>
+</html>
