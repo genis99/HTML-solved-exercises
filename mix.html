@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebPage</title>
+	<style>
+	header {
+		margin-top: 50px;
+		display: inline-flex;
+	}
+	#red {
+		display: inline;
+	}
+	#blue {
+		display: none;
+	}
+	#green {
+		display: none;
+	}
+	aside {
+		display: inline;
+		float: right;
+	}
+	footer {
+		display: flex;
+		height: 50px;
+		background-color: blue;
+		margin-top: 50px;
+	}
+	div {
+		display: inline;
+	}
+	#div1 {
+		display: hidden;
+	}
+	</style>
+	<script>
+	var rvisible = true;
+	var bvisible = false;
+	var gvisible = false;
+    var myVar = setInterval(myCarrousel, 3000);
+    var myVar2 = setInterval(myClock, 1000);
+    var myvar3 = setInterval(act, 0000);
+    var h = 0;
+    var m = 0;
+    var s = 0;
+    function myCarrousel() {
+        if (rvisible) {
+        	document.getElementById("red").style.display = "none";
+        	document.getElementById("blue").style.display = "inline";
+        	bvisible = true;
+        	rvisible = false;
+        }
+        else if (bvisible) {
+        	document.getElementById("blue").style.display = "none";
+        	document.getElementById("green").style.display = "inline";
+        	gvisible = true;
+        	bvisible = false;
+        }
+        else if (gvisible) {
+        	document.getElementById("green").style.display = "none";
+        	document.getElementById("red").style.display = "inline";
+        	rvisible = true;
+        	gvisible = false;
+        }
+    }
+    function myClock() {
+    	if (s == 60) {
+    		s = 0; m++;
+    	}
+    	if (m == 60) {
+    		m = 0; h++;
+    	}
+    	if (h < 10) document.getElementById("h").innerHTML = "0" + h;
+    	else document.getElementById("h").innerHTML = h;
+    	if (m < 10) document.getElementById("m").innerHTML = "0" + m;
+    	else document.getElementById("m").innerHTML = m;
+    	if (s < 10) document.getElementById("s").innerHTML = "0" + s;
+    	else document.getElementById("s").innerHTML = s;
+    	++s;
+    }
+    function act() {
+    	document.getElementById("div2").innerHTML =  "Hola " + document.getElementById('div1').value;
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <img id="red" src="red.png" alt="red">
+        <img id="blue" src="blue.png" alt="blue">
+        <img id="green" src="green.png" alt="green">
+    </header>
+    <aside>
+        <span id="h"></span> <span id="m"></span> <span id="s"></span>
+    </aside>
+    <br>
+    <div>
+        <input id = "div1" type="text" name="text" value="">
+        <span id="div2"></span>
+    </div>
+    <footer>
+    </footer>
+</body>
+</html>
